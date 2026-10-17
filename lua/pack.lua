@@ -1,4 +1,8 @@
 vim.pack.add({
+  "https://github.com/mason-org/mason.nvim",
+  "https://github.com/neovim/nvim-lspconfig",
+  "https://github.com/mason-org/mason-lspconfig.nvim",
+  "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
   "https://github.com/nvim-mini/mini.nvim",
   "https://www.github.com/nvim-tree/nvim-tree.lua",
   {
@@ -6,9 +10,7 @@ vim.pack.add({
     branch = "main",
     build = ":TSUpdate",
   },
-  "https://github.com/neovim/nvim-lspconfig",
   "https://github.com/tpope/vim-fugitive",
-  "https://github.com/mason-org/mason.nvim",
   "https://www.github.com/ibhagwan/fzf-lua",
   "https://github.com/MeanderingProgrammer/render-markdown.nvim",
   "https://github.com/nvim-tree/nvim-web-devicons",
@@ -21,6 +23,7 @@ require("nvim-tree").setup({
 	},
 })
 
+-- Mini nvim config start
 
 local MiniFiles = require("mini.files")
 MiniFiles.setup({
@@ -72,10 +75,21 @@ require("mini.completion").setup({
     }
 })
 
+require("mini.comment").setup({
+  mappings = {
+    comment = "gc",
+    comment_line = "gcc",
+    comment_visual = "gc",
+    textobject = "gc",
+  },
+})
+
 local MiniDiff = require("mini.diff")
 MiniDiff.setup({
 	source = MiniDiff.gen_source.git({ index = false }),
 })
+
+-- Mini nvim config end
 
 vim.keymap.set("n", "<leader>gg", "<cmd>tabnew | Git | only<cr>", { desc = "Fugitive Full Page New Tab" })
 vim.keymap.set("n", "<leader>gd", "<cmd>Gvdiffsplit<CR>", { desc = "Git diff split", })

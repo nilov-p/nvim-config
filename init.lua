@@ -6,7 +6,6 @@ require('keymaps')
 require('autocmd')
 require('usercmd')
 require('pack')
-require("treesitter")
-require("lsp")
-
-
+require('lsp')
+require('treesitter')
+require('fterm')

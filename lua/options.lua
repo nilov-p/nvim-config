@@ -45,3 +45,7 @@ vim.opt.shortmess:append("c")
 vim.opt.isfname:append("@-@")
 vim.opt.guicursor = ""
 vim.opt.selection = "inclusive"
+
+vim.opt.foldmethod = "expr" -- use expression for folding
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- use treesitter for folding
+vim.opt.foldlevel = 99 -- start with all folds open

@@ -89,6 +89,14 @@ MiniDiff.setup({
 	source = MiniDiff.gen_source.git({ index = false }),
 })
 
+local MiniTrailspace = require("mini.trailspace")
+MiniTrailspace.setup()
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+    callback = function()
+        MiniTrailspace.trim()
+    end,
+})
 -- Mini nvim config end
 
 vim.keymap.set("n", "<leader>gg", "<cmd>tabnew | Git | only<cr>", { desc = "Fugitive Full Page New Tab" })

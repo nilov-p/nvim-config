@@ -1,5 +1,4 @@
 require("mason").setup()
-
 -- To see the list of lang server config, see below link
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 local ensure_installed = {
@@ -56,7 +55,7 @@ local ensure_installed = {
 
 require("mason-tool-installer").setup({
     ensure_installed = ensure_installed,
-    run_on_start = true,
+    run_on_start = false,
 })
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -175,9 +174,21 @@ local function lsp_on_attach(ev)
 	end
 end
 
+local augroup = vim.api.nvim_create_augroup("LspAttach", {
+    clear = true,
+})
+
 vim.api.nvim_create_autocmd("LspAttach", { group = augroup, callback = lsp_on_attach })
 
 vim.keymap.set("n", "<leader>q", function()
 	vim.diagnostic.setloclist({ open = true })
 end, { desc = "Open diagnostic list" })
 vim.keymap.set("n", "<leader>dl", vim.diagnostic.open_float, { desc = "Show line diagnostics" })
+
+vim.keymap.set("i", "<Tab>", function()
+    return vim.fn.pumvisible() == 1 and "<C-n>" or "<Tab>"
+end, { expr = true, desc = "Next completion item" })
+
+vim.keymap.set("i", "<S-Tab>", function()
+    return vim.fn.pumvisible() == 1 and "<C-p>" or "<S-Tab>"
+end, { expr = true, desc = "Previous completion item" })

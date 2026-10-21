@@ -40,6 +40,10 @@
       "rev": "58447c1fca354bbf184425e4a8d01deecbd6f3c4",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
+    "obsidian.nvim": {
+      "rev": "4eec5b1319e15154002931ce4eaf4d8e2952c519",
+      "src": "https://github.com/obsidian-nvim/obsidian.nvim"
+    },
     "render-markdown.nvim": {
       "rev": "245956d67572c137df375dbf256e96bdb07e0937",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"

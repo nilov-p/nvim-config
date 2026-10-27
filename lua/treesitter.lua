@@ -28,6 +28,9 @@ local ensure_installed = {
     "java",
     "terraform",
     "yaml",
+    "helm",
+    "gotmpl",
+    "make",
 }
 
 local config = require("nvim-treesitter.config")

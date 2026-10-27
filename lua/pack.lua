@@ -144,7 +144,7 @@ require("lualine").setup({
 
 require("obsidian").setup({
     legacy_commands = false,
-    workspaces = { { name = "Notes", path = "~/notes" } },
+    workspaces = { { name = "Notes", path = "~/Documents/notes" } },
     picker = { name = "fzf-lua" },
 })
 

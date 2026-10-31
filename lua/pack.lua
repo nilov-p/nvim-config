@@ -15,7 +15,8 @@ vim.pack.add({
   "https://github.com/MeanderingProgrammer/render-markdown.nvim",
   "https://github.com/nvim-tree/nvim-web-devicons",
   "https://github.com/nvim-lualine/lualine.nvim",
-  "https://github.com/obsidian-nvim/obsidian.nvim"
+  "https://github.com/obsidian-nvim/obsidian.nvim",
+  "https://github.com/folke/snacks.nvim"
 })
 
 require("nvim-tree").setup({
@@ -51,7 +52,18 @@ require("mini.notify").setup({
     },
 })
 
-require("mini.pairs").setup({})
+local MiniPairs = require("mini.pairs")
+MiniPairs.setup({})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "markdown",
+    callback = function()
+        vim.keymap.set("i", "`", "`", {
+            buffer = true,
+            desc = "Insert literal backtick",
+        })
+    end,
+})
 
 require("mini.cmdline").setup({
     autocorrect = { enable = false }
@@ -140,3 +152,15 @@ require("lualine").setup({
 	},
 })
 
+require("snacks").setup({
+  image = {
+      enabled = true,
+      doc = {
+        enabled = true,
+        inline = true,
+        float = true,
+        max_width = 80,
+        max_height = 40,
+      },
+  },
+})

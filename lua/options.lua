@@ -1,4 +1,5 @@
 vim.g.netrw_banner = 0
+vim.opt.termguicolors = true
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -12,7 +13,7 @@ vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 
 vim.opt.smartindent = true
-vim.opt.autoindent = true 
+vim.opt.autoindent = true
 vim.opt.inccommand = "split"
 
 vim.opt.ignorecase = true
@@ -30,7 +31,7 @@ vim.opt.splitright = true
 
 local undodir = vim.fn.expand("~/.vim/undodir")
 if
-	vim.fn.isdirectory(undodir) == 0 
+	vim.fn.isdirectory(undodir) == 0
 then
 	vim.fn.mkdir(undodir, "p")
 end

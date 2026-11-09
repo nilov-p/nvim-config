@@ -20,8 +20,8 @@ vim.pack.add({
   "https://github.com/obsidian-nvim/obsidian.nvim",
   "https://github.com/folke/snacks.nvim",
 })
-require("vscode").setup()
-vim.cmd.colorscheme("vscode")
+ -- require("vscode").setup()
+-- vim.cmd.colorscheme("vscode")
 
 require("nvim-tree").setup({
   filters = {

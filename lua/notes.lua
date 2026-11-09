@@ -13,6 +13,15 @@ local function setup_obsidian()
       legacy_commands = false,
       workspaces = { { name = "Notes", path = get_obsidian_vault_path()} },
       picker = { name = "fzf-lua" },
+      templates = {
+        folder = "templates"
+      },
+      daily_notes = {
+        enabled = true,
+        folder = "journal",
+        date_format = "YYYY-MM-DD",
+        template = "daily.md",
+      },
   })
 
   vim.keymap.set("n", "<leader>nn", function()
